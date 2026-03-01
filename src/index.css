@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+  font-family:
+    "Inter",
+    -apple-system,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.lg {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+  -webkit-backdrop-filter: blur(60px) saturate(180%) brightness(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.app-shell {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem 2rem;
+}
+.dashboard {
+  flex: 1;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+}
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 0 1.2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.brand-accent {
+  transition: color 0.6s;
+}
+.brand-sub {
+  font-weight: 300;
+  margin-left: 0.1em;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.45rem 0.45rem 1rem;
+  border-radius: 999px;
+  flex: 1;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(60px) saturate(180%);
+  -webkit-backdrop-filter: blur(60px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.search-form:focus-within {
+  background: rgba(255, 255, 255, 0.17);
+}
+.search-icon {
+  opacity: 0.4;
+  font-size: 0.9rem;
+}
+.search-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+.search-input:disabled {
+  opacity: 0.4;
+}
+.search-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-top-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.26);
+}
+.search-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.spin {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #fff;
+  animation: spin 0.7s linear infinite;
+}
+
+.clock-widget {
+  padding: 1.4rem 1.6rem;
+  border-radius: 20px;
+}
+.clock-time {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+}
+.clock-date {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.4rem;
+}
+
+.icon-widget {
+  padding: 1.4rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.big-icon {
+  font-size: 5rem;
+  line-height: 1;
+}
+.icon-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-widget {
+  padding: 1.4rem 1.6rem;
+  border-radius: 20px;
+}
+.hero-city {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.hero-country {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+.hero-temp {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 0.2rem;
+  letter-spacing: -2px;
+}
+.hero-unit {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.hero-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.25rem;
+  text-transform: capitalize;
+}
+.hero-feels {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.38);
+  margin-top: 0.3rem;
+}
+.hero-range {
+  font-size: 0.84rem;
+  font-weight: 500;
+  margin-top: 0.3rem;
+}
+
+.stat-widget {
+  padding: 1.1rem 0.9rem;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  text-align: center;
+}
+.sw-emoji {
+  font-size: 1.4rem;
+}
+.sw-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.sw-label {
+  font-size: 0.63rem;
+  color: rgba(255, 255, 255, 0.42);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recent-wrap {
+  padding: 1rem 1.3rem;
+  border-radius: 18px;
+}
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+.recent-title {
+  font-size: 0.67rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+.recent-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.67rem;
+  font-family: inherit;
+}
+.recent-clear:hover {
+  color: #fca5a5;
+}
+.recent-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.recent-chip {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  padding: 0.28rem 0.85rem;
+  font-size: 0.78rem;
+  font-family: inherit;
+  color: #fff;
+  cursor: pointer;
+}
+.recent-chip:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.error-bar {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 16px;
+  padding: 0.8rem 1.1rem;
+  color: #fca5a5;
+  font-size: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 5rem 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.loader {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 5rem 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-size: 0.9rem;
+}
+.empty-globe {
+  font-size: 4.5rem;
+}
+
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-widget {
+    grid-column: 1 / -1;
+  }
+  .hero-temp {
+    font-size: 2.8rem;
+  }
+  .app-shell {
+    padding: 0 1rem 1.5rem;
+  }
+}
+@media (max-width: 420px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-form {
+    max-width: 100%;
+  }
+  .app-shell {
+    padding: 0 0.8rem 1.2rem;
+  }
+}
